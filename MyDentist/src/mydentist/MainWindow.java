@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 public class MainWindow extends javax.swing.JFrame {
 
     public MainWindow() {
@@ -157,6 +158,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel112 = new javax.swing.JLabel();
         jTextField78 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jTextField79 = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
@@ -1111,6 +1113,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jTextField79.setEditable(false);
+        jTextField79.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField79ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -1165,9 +1174,14 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jLabel112, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField78, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58)
-                .addComponent(jButton4)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton4))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jTextField79, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1212,7 +1226,9 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel41))))
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23)
@@ -1641,7 +1657,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel66.setText("Presupuesto");
 
-        jButton2.setText("Agregar Paciente");
+        jButton2.setText("Editar Paciente");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -2917,7 +2938,7 @@ public class MainWindow extends javax.swing.JFrame {
             paciente.setNombre(jTextField76.getText());
             paciente.setAPaterno(jTextField77.getText());
             paciente.setAMaterno(jTextField78.getText());
-            
+
             ps = con.prepareStatement("SELECT * FROM paciente WHERE Nombre=? AND APaterno=? AND AMaterno=?");
             ps.setString(1, paciente.getNombre());
             ps.setString(2, paciente.getAPaterno());
@@ -2936,7 +2957,7 @@ public class MainWindow extends javax.swing.JFrame {
                 paciente2.setDomicilio(rs.getString("Domicilio"));
                 paciente2.setColonia(rs.getString("Colonia"));
                 paciente2.setLocalidad(rs.getString("Localidad"));
-                
+
                 jTextField23.setText(paciente2.getNombre());
                 jTextField24.setText(paciente2.getAPaterno());
                 jTextField25.setText(paciente2.getAMaterno());
@@ -2946,9 +2967,8 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField28.setText(paciente2.getDomicilio());
                 jTextField29.setText(paciente2.getColonia());
                 jTextField30.setText(paciente2.getLocalidad());
-                
-                                                              
-                
+                jTextField79.setText(rs.getString("id"));
+
             } else {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
             }
@@ -2956,6 +2976,51 @@ public class MainWindow extends javax.swing.JFrame {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Paciente paciente = new Paciente();
+            paciente.setNombre(jTextField23.getText());
+            paciente.setAPaterno(jTextField24.getText());
+            paciente.setAMaterno(jTextField25.getText());
+            paciente.setGenero(String.valueOf(jComboBox2.getSelectedItem()));
+            paciente.setEdad(Integer.parseInt(jTextField26.getText()));
+            paciente.setTelefono(Long.parseLong(jTextField27.getText()));
+            paciente.setDomicilio(jTextField28.getText());
+            paciente.setColonia(jTextField29.getText());
+            paciente.setLocalidad(jTextField30.getText());
+            ps = con.prepareStatement("Update paciente SET Nombre=?, APaterno=?, AMaterno=?, Genero=?, Edad=?,"
+                    + " Telefono=?, Domicilio=?, Colonia=?, Localidad=? WHERE id = ?");
+            ps.setString(1, paciente.getNombre());
+            ps.setString(2, paciente.getAPaterno());
+            ps.setString(3, paciente.getAMaterno());
+            ps.setString(4, paciente.getGenero());
+            ps.setInt(5, paciente.getEdad());
+            ps.setLong(6, paciente.getTelefono());
+            ps.setString(7, paciente.getDomicilio());
+            ps.setString(8, paciente.getColonia());
+            ps.setString(9, paciente.getLocalidad());
+            ps.setInt(10, Integer.parseInt(jTextField79.getText()));
+
+            int res = ps.executeUpdate();
+
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Paciente modificado");
+                //Vaciar campos
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Paciente no modificado");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField79ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField79ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3312,6 +3377,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField76;
     private javax.swing.JTextField jTextField77;
     private javax.swing.JTextField jTextField78;
+    private javax.swing.JTextField jTextField79;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
