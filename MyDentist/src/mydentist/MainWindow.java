@@ -2413,6 +2413,8 @@ public class MainWindow extends javax.swing.JFrame {
         //BOTON AGREGAR PACIENTE
         Paciente paciente = new Paciente();
         AntecedentesMedicos antemedicos = new AntecedentesMedicos();
+        AntecedentesFamiliares antefam = new AntecedentesFamiliares();
+        DiagnosticoYTratamiento diag = new DiagnosticoYTratamiento();
 
         //Datos Personales
         paciente.setNombre(jTextField1.getText());
@@ -2439,7 +2441,9 @@ public class MainWindow extends javax.swing.JFrame {
 
             int rs = ps.executeUpdate();
             if (rs > 0) {
-                System.out.println("Reistrado");
+                JOptionPane.showMessageDialog(this, "Paciente Registrado");
+            }else{
+                JOptionPane.showMessageDialog(this, "Paciente No Registrado");
             }
 
         } catch (SQLException ex) {
@@ -2506,9 +2510,90 @@ public class MainWindow extends javax.swing.JFrame {
 
                 int rs = ps.executeUpdate();
                 if (rs > 0) {
-                    System.out.println("Reistrado");
+                    
                 }
+            }
 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+        //Antecedentes Familiares
+        antefam.setDiabetes(jRadioButton11.isSelected());
+        antefam.setDQuien(jTextField18.getText());
+        antefam.setHipertension(jRadioButton13.isSelected());
+        antefam.setHQuien(jTextField19.getText());
+        antefam.setCardiacos(jRadioButton15.isSelected());
+        antefam.setCQuien(jTextField20.getText());
+        antefam.setCancer(jRadioButton17.isSelected());
+        antefam.setCaQuien(jTextField21.getText());
+        
+        try {
+
+            ps = con.prepareStatement("SELECT id FROM paciente WHERE Nombre=? AND APaterno=? AND AMaterno=?;");
+            ps.setString(1, paciente.getNombre());
+            ps.setString(2, paciente.getAPaterno());
+            ps.setString(3, paciente.getAMaterno());
+
+            int id;
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id");
+                ps = con.prepareStatement("INSERT INTO antecedentes_familiares( id, id_p, Diabetes, DQuien, Hipertension, HQuien, Cardiacos, CQuien, Cancer, CaQuien) VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                ps.setInt(1, id);
+                ps.setBoolean(2, antefam.isDiabetes());
+                ps.setString(3, antefam.getDQuien());
+                ps.setBoolean(4, antefam.isHipertension());
+                ps.setString(5, antefam.getHQuien());
+                ps.setBoolean(6, antefam.isCardiacos());
+                ps.setString(7, antefam.getCQuien());
+                ps.setBoolean(8, antefam.isCancer());
+                ps.setString(9, antefam.getCaQuien());
+
+
+                int rs = ps.executeUpdate();
+                if (rs > 0) {
+                    
+                }
+            }
+
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+        //Odontograma
+        
+        //Diagnostico y Tratamiento
+        diag.setDiagnostico(jTextArea1.getText());
+        diag.setTratamiento(jTextArea2.getText());
+        diag.setPresupuesto(Integer.parseInt(jTextField22.getText()));
+        
+
+        try {
+
+            ps = con.prepareStatement("SELECT id FROM paciente WHERE Nombre=? AND APaterno=? AND AMaterno=?;");
+            ps.setString(1, paciente.getNombre());
+            ps.setString(2, paciente.getAPaterno());
+            ps.setString(3, paciente.getAMaterno());
+
+            int id;
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id");
+                ps = con.prepareStatement("INSERT INTO diagnostico_tratamiento( id, id_p, Diagnostico, Tratamiento, Presupuesto) VALUES (null, ?, ?, ?, ?);");
+                ps.setInt(1, id);
+                ps.setString(2, diag.getDiagnostico());
+                ps.setString(3, diag.getTratamiento());
+                ps.setInt(4, diag.getPresupuesto());
+
+
+
+                int rs = ps.executeUpdate();
+                if (rs > 0) {
+                    
+                }
             }
 
         } catch (SQLException ex) {
