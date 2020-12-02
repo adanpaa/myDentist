@@ -292,8 +292,14 @@ public class MainWindow extends javax.swing.JFrame {
         txtDomicilio4 = new javax.swing.JTextField();
         txtColonia4 = new javax.swing.JTextField();
         txtLocalidad4 = new javax.swing.JTextField();
-        jLabel109 = new javax.swing.JLabel();
-        jTextField75 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel117 = new javax.swing.JLabel();
+        txtNombre5 = new javax.swing.JTextField();
+        jLabel118 = new javax.swing.JLabel();
+        txtAP5 = new javax.swing.JTextField();
+        jLabel119 = new javax.swing.JLabel();
+        txtAM5 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -1011,7 +1017,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtPA2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtFR2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel114)
@@ -1096,7 +1102,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtEdad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Datos Personales", jPanel16);
@@ -1782,6 +1788,18 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel104.setText("Edad");
 
+        txtAP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAP4ActionPerformed(evt);
+            }
+        });
+
+        txtAM4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAM4ActionPerformed(evt);
+            }
+        });
+
         cboxG4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "H" }));
 
         jLabel105.setText("Telefono");
@@ -1792,7 +1810,37 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel108.setText("Localidad");
 
-        jLabel109.setText("Buscar Paciente:");
+        jButton1.setText("ELIMINAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel117.setText("Nombre");
+
+        jLabel118.setText("Apellido Paterno");
+
+        txtAP5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAP5ActionPerformed(evt);
+            }
+        });
+
+        jLabel119.setText("Apellido Materno");
+
+        txtAM5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAM5ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("BUSCAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -1838,20 +1886,42 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(txtDomicilio4)
                                     .addComponent(txtTelefono4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel26Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jLabel109, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField75, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(820, Short.MAX_VALUE))
+                        .addGap(373, 373, 373)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel117, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(txtNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel118, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(txtAP5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel119, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(txtAM5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton3)))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel109)
-                    .addComponent(jTextField75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAP5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAM5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel117)
+                            .addComponent(jLabel118)
+                            .addComponent(jLabel119))))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1895,7 +1965,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(jLabel104))
                     .addComponent(txtEdad4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(226, 226, 226))
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         jTabbedPane6.addTab("Datos Personales", jPanel26);
@@ -2024,7 +2096,7 @@ public class MainWindow extends javax.swing.JFrame {
             int rs = ps.executeUpdate();
             if (rs > 0) {
                 JOptionPane.showMessageDialog(this, "Paciente Registrado");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Paciente No Registrado");
             }
 
@@ -2092,14 +2164,14 @@ public class MainWindow extends javax.swing.JFrame {
 
                 int rs = ps.executeUpdate();
                 if (rs > 0) {
-                    
+
                 }
             }
 
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         //Antecedentes Familiares
         antefam.setDiabetes(radioB11.isSelected());
         antefam.setDQuien(txtDiabetes.getText());
@@ -2109,7 +2181,7 @@ public class MainWindow extends javax.swing.JFrame {
         antefam.setCQuien(txtProblemasC.getText());
         antefam.setCancer(radioB17.isSelected());
         antefam.setCaQuien(txtCancer.getText());
-        
+
         try {
 
             ps = con.prepareStatement("SELECT id FROM paciente WHERE Nombre=? AND APaterno=? AND AMaterno=?;");
@@ -2133,24 +2205,21 @@ public class MainWindow extends javax.swing.JFrame {
                 ps.setBoolean(8, antefam.isCancer());
                 ps.setString(9, antefam.getCaQuien());
 
-
                 int rs = ps.executeUpdate();
                 if (rs > 0) {
-                    
+
                 }
             }
 
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         //Odontograma
-        
         //Diagnostico y Tratamiento
         diag.setDiagnostico(txtAreaD.getText());
         diag.setTratamiento(txtAreaPT.getText());
         diag.setPresupuesto(Integer.parseInt(txtPresupuesto.getText()));
-        
 
         try {
 
@@ -2170,11 +2239,9 @@ public class MainWindow extends javax.swing.JFrame {
                 ps.setString(3, diag.getTratamiento());
                 ps.setInt(4, diag.getPresupuesto());
 
-
-
                 int rs = ps.executeUpdate();
                 if (rs > 0) {
-                    
+
                 }
             }
 
@@ -2241,14 +2308,14 @@ public class MainWindow extends javax.swing.JFrame {
                     ps.setInt(1, Integer.parseInt(jTextField79.getText()));
 
                     rs = ps.executeQuery();
-                    
-                    if(rs.next()){
+
+                    if (rs.next()) {
                         txtAreaD2.setText(rs.getString("Diagnostico"));
                         txtAreaPT2.setText(rs.getString("Tratamiento"));
                         txtPresupuesto2.setText(rs.getString("Presupuesto"));
-                                    
-                    }else {
-                        JOptionPane.showMessageDialog(this, "Diagnostico y Tratamiento No Encontrados");                        
+
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Diagnostico y Tratamiento No Encontrados");
                     }
 
                 } else {
@@ -2315,14 +2382,14 @@ public class MainWindow extends javax.swing.JFrame {
                     ps.setString(2, diagTrat.getTratamiento());
                     ps.setInt(3, diagTrat.getPresupuesto());
                     ps.setInt(4, Integer.parseInt(jTextField79.getText()));
-                    
+
                     res = ps.executeUpdate();
-                    
+
                     if (res > 0) {
                     } else {
                         JOptionPane.showMessageDialog(null, "Diagnostico y Tratamiento no modificados");
                     }
-                    
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Antecedentes medicos no modificados");
                 }
@@ -2334,6 +2401,107 @@ public class MainWindow extends javax.swing.JFrame {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarPacienteActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            // BOTON ELIMINAR PACIENTE
+            ps = con.prepareStatement("Delete from abono WHERE id_p = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            ps.executeUpdate();
+            ps = con.prepareStatement("Delete from antecedentes_familiares WHERE id_p = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            ps.executeUpdate();
+            ps = con.prepareStatement("Delete from antecedentes_medicos WHERE id_p = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            ps.executeUpdate();
+            ps = con.prepareStatement("Delete from cita WHERE id_p = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            ps.executeUpdate();
+            ps = con.prepareStatement("Delete from diagnostico_tratamiento WHERE id_p = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            ps.executeUpdate();
+            ps = con.prepareStatement("Delete from odontograma WHERE id_p = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            int res = ps.executeUpdate();
+
+            ps = con.prepareStatement("Delete from paciente WHERE id = ?");
+            ps.setInt(1, Integer.parseInt(jTextField79.getText()));
+            res = ps.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Paciente Eliminado Correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar al paciente");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtAP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAP4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAP4ActionPerformed
+
+    private void txtAM4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAM4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAM4ActionPerformed
+
+    private void txtAP5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAP5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAP5ActionPerformed
+
+    private void txtAM5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAM5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAM5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        //BOTON BUSCAR PARA ELIMINAR
+        try {
+            Paciente paciente = new Paciente();
+            paciente.setNombre(txtNombre5.getText());
+            paciente.setAPaterno(txtAP5.getText());
+            paciente.setAMaterno(txtAM5.getText());
+
+            ps = con.prepareStatement("SELECT * FROM paciente WHERE Nombre=? AND APaterno=? AND AMaterno=?");
+            ps.setString(1, paciente.getNombre());
+            ps.setString(2, paciente.getAPaterno());
+            ps.setString(3, paciente.getAMaterno());
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Paciente paciente2 = new Paciente();
+                paciente2.setNombre(rs.getString("Nombre"));
+                paciente2.setAPaterno(rs.getString("APaterno"));
+                paciente2.setAMaterno(rs.getString("AMaterno"));
+                paciente2.setGenero(rs.getString("Genero"));
+                paciente2.setEdad(rs.getInt("Edad"));
+                paciente2.setTelefono(Long.parseLong(rs.getString("Telefono")));
+                paciente2.setDomicilio(rs.getString("Domicilio"));
+                paciente2.setColonia(rs.getString("Colonia"));
+                paciente2.setLocalidad(rs.getString("Localidad"));
+
+                txtNombre4.setText(paciente2.getNombre());
+                txtAP4.setText(paciente2.getAPaterno());
+                txtAM4.setText(paciente2.getAMaterno());
+                cboxG4.setSelectedItem(paciente2.getGenero());
+                txtEdad4.setText(String.valueOf(paciente2.getEdad()));
+                txtTelefono4.setText(String.valueOf(paciente2.getTelefono()));
+                txtDomicilio4.setText(paciente2.getDomicilio());
+                txtColonia4.setText(paciente2.getColonia());
+                txtLocalidad4.setText(paciente2.getLocalidad());
+                jTextField79.setText(rs.getString("id"));
+
+            } else {
+                JOptionPane.showMessageDialog(this, "El paciente no existe");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2397,6 +2565,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkB7;
     private javax.swing.JCheckBox checkB8;
     private javax.swing.JCheckBox checkB9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -2408,7 +2578,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
-    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
@@ -2417,6 +2586,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2528,7 +2700,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTextField jTextField75;
     private javax.swing.JTextField jTextField79;
     private javax.swing.JRadioButton radioB1;
     private javax.swing.JRadioButton radioB10;
@@ -2570,10 +2741,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField txtAM2;
     private javax.swing.JTextField txtAM3;
     private javax.swing.JTextField txtAM4;
+    private javax.swing.JTextField txtAM5;
     private javax.swing.JTextField txtAP1;
     private javax.swing.JTextField txtAP2;
     private javax.swing.JTextField txtAP3;
     private javax.swing.JTextField txtAP4;
+    private javax.swing.JTextField txtAP5;
     private javax.swing.JTextField txtAler1;
     private javax.swing.JTextField txtAler2;
     private javax.swing.JTextArea txtAreaD;
@@ -2621,6 +2794,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre2;
     private javax.swing.JTextField txtNombre3;
     private javax.swing.JTextField txtNombre4;
+    private javax.swing.JTextField txtNombre5;
     private javax.swing.JTextField txtPA;
     private javax.swing.JTextField txtPA2;
     private javax.swing.JTextField txtPA3;
